@@ -6,8 +6,10 @@ const series = (start, end) => {
       numberseries.push(i);
     }
   }
-  
+  console.log(numberseries);
   return numberseries;
 };
 
-console.log(series(4,10));
+
+
+module.exports = {series};
