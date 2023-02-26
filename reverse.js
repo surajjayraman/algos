@@ -31,5 +31,19 @@ console.log('array1:', array1);
 // Print out reversed cmd line args:
 const reversedCmdLine = arrayArgs.reverse();
 console.log('reversed cmd line:', reversedCmdLine);
+console.log("Reversed cmdline args in String format:",reversedCmdLine.join(''));
 
+let finalReversed = [];
+// Print out entire arrays reversed in String format
+const reverseString = (arrayArgs) => {
+  for (const args of arrayArgs) {
+    const splitString = args.split("");
+    const reverseArray = splitString.reverse();
+    const joinArray = reverseArray.join("");
+    console.log(joinArray);
+    finalReversed.push(joinArray);
+  }
+  return finalReversed;
+};
 
+console.log("Final Reversed Arguments as String format:", reverseString(arrayArgs).join(''));
