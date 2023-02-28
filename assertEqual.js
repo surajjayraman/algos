@@ -1,4 +1,5 @@
 const algo = require('./basicalgo.js');
+const reverseString = require('./reverse.js');
 // FUNCTION IMPLEMENTATION
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
@@ -25,3 +26,7 @@ console.assert(sum(1, 2) === 3);
 console.assert(sum(1, 20) === 3); // bad / incorrect assertion, and we see it fail!
 console.assert(JSON.stringify(algo.series(4,10)) === JSON.stringify([4,6,8])); // incorrect assertion, and we see it fail!
 console.assert(JSON.stringify(algo.series(4,10)) === JSON.stringify([4,6,8,10])); // correct assertion
+
+// Test CODE for reversal
+console.assert(JSON.stringify(reverseString.reverseString(["hello", "how", "are", "you"])) === JSON.stringify(["olleh","woh","era","uoy"]));
+

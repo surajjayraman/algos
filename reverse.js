@@ -47,3 +47,5 @@ const reverseString = (arrayArgs) => {
 };
 
 console.log("Final Reversed Arguments as String format:", reverseString(arrayArgs).join(''));
+
+module.exports = {reverseString};
