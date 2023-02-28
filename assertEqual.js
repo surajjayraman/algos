@@ -28,5 +28,9 @@ console.assert(JSON.stringify(algo.series(4,10)) === JSON.stringify([4,6,8])); /
 console.assert(JSON.stringify(algo.series(4,10)) === JSON.stringify([4,6,8,10])); // correct assertion
 
 // Test CODE for reversal
-console.assert(JSON.stringify(reverseString.reverseString(["hello", "how", "are", "you"])) === JSON.stringify(["olleh","woh","era","uoy"]));
+const actual = JSON.stringify(reverseString.reverseString(["hello", "how", "are", "you"]));
+const expected = JSON.stringify(["olleh","woh","era","uoy"]);
+console.assert(actual === expected);
 
+// Use assertEqual custom function
+assertEqual(actual, expected);
