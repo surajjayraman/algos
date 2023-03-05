@@ -8,7 +8,7 @@ for (let i = 0; i < (array.length - 2); i++) {
   arrayArgs.push(array[i + 2]);
 }
 
-const pigLatin = () => {
+const pigLatin = (arrayArgs) => {
   console.log("pig latin arguments: ", arrayArgs);
   const reversedPigLatin = reverseString(arrayArgs);
   return reversedPigLatin;
@@ -25,4 +25,6 @@ const reverseString = (arrayArgs) => {
   return finalReversed.join(' ');
 };
 
-console.log(`pig latin output: ${pigLatin()}`);
+console.log(`pig latin output: ${pigLatin(arrayArgs)}`);
+
+module.exports = {pigLatin};

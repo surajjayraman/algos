@@ -1,5 +1,7 @@
 const algo = require('./basicalgo.js');
 const reverseString = require('./reverse.js');
+const pigLatin = require('./pig-latin.js');
+
 // FUNCTION IMPLEMENTATION
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
@@ -34,3 +36,7 @@ console.assert(actual === expected);
 
 // Use assertEqual custom function
 assertEqual(actual, expected);
+
+// Test piglatin rules
+assertEqual(pigLatin.pigLatin(['this','is','all','just','gibberish']),'histay siay llaay ustjay ibberishgay');
+
