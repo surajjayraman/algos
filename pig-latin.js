@@ -22,7 +22,7 @@ const reverseString = (arrayArgs) => {
     const pigLatinArray = splitStringHead.join('') + splitString[0] + 'ay';
     finalReversed.push(pigLatinArray);
   }
-  console.log(`pig latin output: ${finalReversed.join(' ')}`);
-  return finalReversed;
+  return finalReversed.join(' ');
 };
-pigLatin();
+
+console.log(`pig latin output: ${pigLatin()}`);
