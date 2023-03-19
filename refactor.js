@@ -29,3 +29,5 @@ const loopyLighthouse = (range, multiples, words) => {
 
 const resArray = loopyLighthouse([15,20], [2, 5], ["Batty", "Beacon"]);
 console.log(resArray);
+
+module.exports = {loopyLighthouse};

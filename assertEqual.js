@@ -1,6 +1,7 @@
 const algo = require('./basicalgo.js');
 const reverseString = require('./reverse.js');
 const pigLatin = require('./pig-latin.js');
+const loopyLighthouse = require('./refactor.js');
 
 // FUNCTION IMPLEMENTATION
 const assertEqual = function(actual, expected) {
@@ -39,4 +40,7 @@ assertEqual(actual, expected);
 
 // Test piglatin rules
 assertEqual(pigLatin.pigLatin(['this','is','all','just','gibberish']),'histay siay llaay ustjay ibberishgay');
+
+// Test loopyLighthouse refactor
+assertEqual(JSON.stringify(loopyLighthouse.loopyLighthouse([15,20], [2, 5], ["Batty", "Beacon"])), JSON.stringify([ 'Beacon', 'Batty', 17, 'Batty', 19, 'BattyBeacon' ]));
 
