@@ -14,7 +14,11 @@ let arrayArgs = [];
 for (let i = 0; i < (array.length - 2); i++) {
   arrayArgs.push(array[i + 2]);
 }
-const splitString = arrayArgs[0].split('');
+
+let splitString = [];
+if (arrayArgs.length) {
+  splitString = arrayArgs[0].split('');
+}
 
 const maskString = (splitString) => {
 
@@ -35,4 +39,9 @@ const maskString = (splitString) => {
   return (splitString.join(''));
 };
 
-console.log(maskString(splitString));
+if (splitString) {
+  console.log(maskString(splitString));
+}
+
+
+module.exports = {maskString};
