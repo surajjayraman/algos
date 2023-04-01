@@ -10,13 +10,7 @@ const flatArray = (obj) => {
   if (Array.isArray(obj)) {
     for (let item of obj) {
       if (Array.isArray(item)) {
-        for (let childItem of item) {
-          if (Array.isArray(childItem)) {
-            outputArray.push((flatArray(childItem)));
-            continue;
-          }
-          outputArray.push(childItem);
-        }
+        arrayFlatten(item, outputArray);
         continue;
       }
       outputArray.push(item);
@@ -25,5 +19,21 @@ const flatArray = (obj) => {
   return outputArray;
 };
 
-console.log(flatArray([1, 2, [3, 4], 5, [6]]));
-console.log(flatArray([9,7,[1],[2,3]]));
+const arrayFlatten = (childObj, parentObj) => {
+  if (Array.isArray(childObj)) {
+
+    for (let childItem of childObj) {
+      if (Array.isArray(childItem)) {
+        arrayFlatten(childItem, parentObj);
+        continue;
+      }
+      parentObj.push(childItem);
+    }
+
+  }
+  return;
+};
+
+console.log(flatArray([1, 2, [3, 4], 5, [6,[7,8,[9,[9]]]]]));
+console.log(flatArray([9,7,[1],[2,3,[9,[9,8,7]]],[2,[6,[9,8]]]]));
+console.log(flatArray([2, [3, 2]]));
