@@ -35,3 +35,5 @@ const arrayFlatten = (childObj, parentObj) => {
 console.log(flatArray([1, 2, [3, 4], 5, [6,[7,8,[9,[9]]]]], arrayFlatten));
 console.log(flatArray([9,7,[1],[2,3,[9,[9,8,7]]],[2,[6,[9,8]]]], arrayFlatten));
 console.log(flatArray([2, [3, 2]], arrayFlatten));
+
+module.exports = {flatArray, arrayFlatten};

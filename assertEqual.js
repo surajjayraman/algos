@@ -3,6 +3,8 @@ const reverseString = require('./reverse.js');
 const pigLatin = require('./pig-latin.js');
 const loopyLighthouse = require('./refactor.js');
 const maskString = require('./mask.js');
+const flatArray = require('./flatten.js');
+const arrayFlatten = require('./flatten.js');
 
 // FUNCTION IMPLEMENTATION
 const assertEqual = function(actual, expected) {
@@ -47,4 +49,17 @@ assertEqual(JSON.stringify(loopyLighthouse.loopyLighthouse([15,20], [2, 5], ["Ba
 
 // Test mask string values
 assertEqual(maskString.maskString(['h','i','t','h','e','r','e']), 'hith3r3');
+
+// Test nested array -> flattened array
+assertEqual(JSON.stringify(flatArray.flatArray([1, 2, [3, 4], 5, [6,[7,8,[9,[9]]]]], arrayFlatten.arrayFlatten)),
+  JSON.stringify([
+    1, 2, 3, 4, 5,
+    6, 7, 8, 9, 9
+  ]));
+
+assertEqual(JSON.stringify(flatArray.flatArray([1, 2, [3, 4], 5, [6,[7,8,[9]]]], arrayFlatten.arrayFlatten)),
+  JSON.stringify([
+    1, 2, 3, 4, 5,
+    6, 7, 8, 9, 9
+  ]));
 
