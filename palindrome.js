@@ -32,10 +32,10 @@ assertPalindrome('p', true);
 assertPalindrome('racecar', true);
 assertPalindrome('my gym', true);
 assertPalindrome('foo', false);
-//assertPalindrome('fluff', false);
-//assertPalindrome('just some random words', false);
-//assertPalindrome('malayalam', true);
+assertPalindrome('fluff', false);
+assertPalindrome('just some random words', false);
+assertPalindrome('malayalam', true);
   
 // Bonus / Stretch: Uncomment these tests and make then work
-//assertPalindrome('Kayak', true);
-//assertPalindrome('a santa at NASA', true);
+assertPalindrome('Kayak', true);
+assertPalindrome('a santa at NASA', true);
