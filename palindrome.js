@@ -1,4 +1,4 @@
-// FUNCTION IMPLEMENTATION (MULTIPLE BUGS)
+// FUNCTION IMPLEMENTATION (Resolved BUGS)
 const isPalindrome = function(str) {
   const noSpaces = str.toUpperCase().split(" ").join("").split('');
   console.log(`No spaces ${noSpaces} type = ${typeof(noSpaces)}`);
