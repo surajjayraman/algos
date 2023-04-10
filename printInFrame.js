@@ -16,7 +16,7 @@ const printInFrame = function(list) {
 const repeat = function(str, times) {
   let result = '';
   
-  for (let i = 0; i < times-1; i++) {
+  for (let i = 0; i < times - 1; i++) {
     result += str;
   }
   
@@ -27,8 +27,8 @@ const longestStr = function(list) {
   let longest = list[0];
   
   for (const str of list) {
-    if (longest.length < str.length){
-        longest = str;
+    if (longest.length < str.length) {
+      longest = str;
     }
     
   }
