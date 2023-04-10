@@ -1,11 +1,7 @@
 const printInFrame = function(list) {
   list = list.split(' ');
-  console.log(`list = ${list}`);
   const longest = longestStr(list).length;
-  console.log(`list[0]=${list[0]}, typeoflist = ${typeof(list)}`);
-  console.log(`longest = ${longest}`);
   const border = repeat('*', (longest + 5));
-  
   console.log(border);
   for (const word of list) {
     console.log(`* ${word}${repeat(' ', longest - word.length + 1)} *`);
