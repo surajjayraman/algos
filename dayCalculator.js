@@ -7,7 +7,7 @@ function calculateDayInYear(date) {
   const validMonth = function(month) {
     return month && month >= 1 && month < 12;
   };
-  
+  console.log(`validMonth = ${month}`);
   const validDay = function(month, day) {
     return day && day >= 1 && day < DAYS_IN_MONTH[month - 1];
   };
