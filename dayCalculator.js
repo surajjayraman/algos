@@ -5,25 +5,26 @@ function calculateDayInYear(date) {
   const day = Number(splitDate[2]);
   
   const validMonth = function(month) {
-    return month && month >= 1 && month < 12;
+    return month && month >= 1 && month <= 12;
   };
   console.log(`validMonth = ${month}`);
+  console.log(`validDay = ${day}`);
   const validDay = function(month, day) {
-    return day && day >= 1 && day < DAYS_IN_MONTH[month - 1];
+    return day && day >= 1 && day <= DAYS_IN_MONTH[month - 1];
   };
   
   const calculateDayNumber = function(month, day) {
-    let dayOfYear = 1;
+    let dayOfYear = 0;
   
-    for (let i = 1; i < month; i++) {
-      dayOfYear += DAYS_IN_MONTH[i - 1];
+    for (let i = 0; i < month - 1; i++) {
+      dayOfYear += DAYS_IN_MONTH[i];
     }
   
-    return dayOfYear;
+    return (dayOfYear + day);
   };
   
   const daysInFeb = function(year) {
-    return 28;
+    return isLeapYear(year) ? 29 : 28;
   };
   
   const isLeapYear = function(year) {
