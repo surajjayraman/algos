@@ -10,9 +10,34 @@
  */
 
 // Write our function (we must define it too!) below
-// ...
+// NOT using the built-in Array join function.
+const plainConcepts = (list) => {
+  let concepts = [];
+  if (list.length === 0) {
+    return "nothing!!";
+  }
+  // atleast one concept
+  for (const concept of list) {
+    if (concept.trim()) {
+      concepts.push(concept);
+    }
+  }
+  return concepts.toString();
+};
+
 
 // Test / Driver Code below...
-const conceptList = ["gists", "types", "operators", "iteration", "problem solving"];
-const concepts = joinList(conceptList);
-console.log(`Today I learned about ${concepts}.`);
+const conceptList = ['gists', 'types', 'operators', 'iteration', 'problem solving'];
+const plainConceptList = ['functions', 'Objects', 'Loops', "    "];
+const concepts = (conceptList)=> {
+  return conceptList.length > 0 ? conceptList.join() : "nothing!!";
+};
+
+// Call Concepts using Array join func.
+console.log(`Today I learned about ${concepts(conceptList)}.`);
+
+// Call Concepts using Plain Array manipulation func.
+console.log(`Today I learned about ${plainConcepts(plainConceptList)}.`);
+
+// Call Concepts using an Empty list of concepts .
+console.log(`Today I learned about ${plainConcepts([])}.`);
