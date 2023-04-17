@@ -41,3 +41,5 @@ console.log(`Today I learned about ${plainConcepts(plainConceptList)}.`);
 
 // Call Concepts using an Empty list of concepts .
 console.log(`Today I learned about ${plainConcepts([])}.`);
+
+module.exports = {plainConcepts};

@@ -5,6 +5,7 @@ const loopyLighthouse = require('./refactor.js');
 const maskString = require('./mask.js');
 const flatArray = require('./flatten.js');
 const arrayFlatten = require('./flatten.js');
+const plainConcepts = require('./joinList.js');
 
 // FUNCTION IMPLEMENTATION
 const assertEqual = function(actual, expected) {
@@ -63,3 +64,5 @@ assertEqual(JSON.stringify(flatArray.flatArray([1, 2, [3, 4], 5, [6,[7,8,[9]]]],
     6, 7, 8, 9, 9
   ]));
 
+// Test plain concepts join list
+assertEqual(plainConcepts.plainConcepts(['gists', 'types', 'operators', 'iteration', 'problem solving']), "gists,types,operators,iteration,problem solving");
