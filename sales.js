@@ -23,37 +23,31 @@ const companySalesData = [
 ];
 
 const calculateSalesTax = function(salesData, taxRates) {
-  // Needs to be refactored
   const salesTax = {};
-  let totalSales = 0;
-  let totalTaxes = 0;
+  let totalSales;
+  let totalTaxes;
 
   for (let company of salesData) {
     console.log(company.name);
-    // calculate total sales + tax
-    if (company.name in salesTax) {
-      for (let sale of company.sales) {
-        totalSales = totalSales + sale;
-      }
-      totalTaxes = totalSales * taxRates[company.province];
-      salesTax[company.name]['totalSales'] = salesTax[company.name]['totalSales'] + totalSales;
-      salesTax[company.name]['totalTaxes'] = salesTax[company.name]['totalTaxes'] + totalTaxes;
-      continue;
-    }
-    
+    totalSales = 0;
+    totalTaxes = 0;
     // calculate total sales
     for (let sale of company.sales) {
       totalSales = totalSales + sale;
     }
     // calculate total taxes
     totalTaxes = totalSales * taxRates[company.province];
-
+      
+    if (company.name in salesTax) {
+      salesTax[company.name]['totalSales'] = salesTax[company.name]['totalSales'] + totalSales;
+      salesTax[company.name]['totalTaxes'] = salesTax[company.name]['totalTaxes'] + totalTaxes;
+      continue;
+    }
     salesTax[company.name] = {
       'totalSales': totalSales,
       'totalTaxes' : totalTaxes
     };
-    totalSales = 0;
-    totalTaxes = 0;
+    
   }
   return (`Calculated Sales Tax: ${JSON.stringify(salesTax)}`);
 };
