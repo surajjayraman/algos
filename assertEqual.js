@@ -6,6 +6,7 @@ const maskString = require('./mask.js');
 const flatArray = require('./flatten.js');
 const arrayFlatten = require('./flatten.js');
 const plainConcepts = require('./joinList.js');
+const calculateSalesTax = require('./sales.js');
 
 // FUNCTION IMPLEMENTATION
 const assertEqual = function(actual, expected) {
@@ -66,3 +67,30 @@ assertEqual(JSON.stringify(flatArray.flatArray([1, 2, [3, 4], 5, [6,[7,8,[9]]]],
 
 // Test plain concepts join list
 assertEqual(plainConcepts.plainConcepts(['gists', 'types', 'operators', 'iteration', 'problem solving']), "gists,types,operators,iteration,problem solving");
+
+// Test calculateSalesTax
+const salesTaxRates = {
+  AB: 0.05,
+  BC: 0.12,
+  SK: 0.10
+};
+    
+const companySalesData = [
+  {
+    name: "Telus",
+    province: "BC",
+    sales: [ 100, 200, 400 ]
+  },
+  {
+    name: "Bombardier",
+    province: "AB",
+    sales: [ 80, 20, 10, 100, 90, 500 ]
+  },
+  {
+    name: "Telus",
+    province: "SK",
+    sales: [ 500, 100 ]
+  }
+];
+ 
+assertEqual(calculateSalesTax.calculateSalesTax(companySalesData, salesTaxRates),`Calculated Sales Tax: {"Telus":{"totalSales":1300,"totalTaxes":144},"Bombardier":{"totalSales":800,"totalTaxes":40}}`);

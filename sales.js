@@ -64,3 +64,5 @@ const companyTaxes = (sales, taxRate) => {
 
 const results = calculateSalesTax(companySalesData, salesTaxRates);
 console.log(results);
+
+module.exports = {calculateSalesTax};
