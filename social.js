@@ -30,3 +30,19 @@ const data = {
     follows: ["f05"]
   }
 };
+
+// return name of the individual who follows the most of people
+const  biggestFollower = (data) => {
+  let most = 0;
+  let bigFollower = '';
+
+  for (const follower in data) {
+    if (most < data[follower]['follows'].length) {
+      most = data[follower]['follows'].length;
+      bigFollower = data[follower]['name'];
+    }
+  }
+  return bigFollower;
+};
+
+console.log(biggestFollower(data));
