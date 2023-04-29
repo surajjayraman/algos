@@ -45,4 +45,41 @@ const  biggestFollower = (data) => {
   return bigFollower;
 };
 
+// returns the name of the most popular (most followed) individual
+const mostPopular = (data) =>  {
+  const countObj = {};
+  let mostFollowed = [];
+  // create person and follower count
+  for (const follower in data) {
+    for (const person of data[follower]['follows']) {
+      if (person in countObj) {
+        countObj[person]++;
+        continue;
+      }
+      countObj[person] = 1;
+    }
+  }
+  
+  // get most poopular individuals
+  mostFollowed = getMostPopular(countObj);
+
+  return  mostFollowed;
+
+};
+
+const getMostPopular = (countObj) => {
+  let maxCount = 0;
+  // extract most popular count
+  for (const key in countObj) {
+    if (countObj[key] > maxCount) {
+      maxCount = countObj[key];
+    }
+  }
+  const matched = Object.keys(countObj).filter(function(key) {
+    return countObj[key] === maxCount;
+  });
+  return matched;
+};
+
 console.log(biggestFollower(data));
+console.log(mostPopular(data));
