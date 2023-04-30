@@ -47,26 +47,10 @@ const  biggestFollower = (data) => {
 
 // returns the name of the most popular (most followed) individual
 const mostPopular = (data) =>  {
-  const countObj = {};
+  
   let mostFollowed = [];
-  // create person and follower count
-  for (const follower in data) {
-    for (const person of data[follower]['follows']) {
-      if (person in countObj) {
-        countObj[person]++;
-        //countObj['followedBy'].push(follower);
-        countObj[`${person}followedBy`].push(follower);
-        continue;
-      }
-      countObj[person] = 1;
-      //countObj['followedBy'] = [follower];
-      countObj[`${person}followedBy`] = [follower];
-    }
-    
-  }
-  console.log(countObj);
-  // get most poopular individuals
-  mostFollowed = getMostPopular(countObj);
+  // get most popular individuals
+  mostFollowed = getMostPopular(analyseData(data));
 
   return  mostFollowed;
 
@@ -84,6 +68,27 @@ const getMostPopular = (countObj) => {
     return countObj[key] === maxCount;
   });
   return matched;
+};
+
+// analyse data for mostFollowed and followedBy stats
+const analyseData = (data) => {
+  const countObj = {};
+  // create person and follower count
+  for (const follower in data) {
+    for (const person of data[follower]['follows']) {
+      if (person in countObj) {
+        countObj[person]++;
+        countObj[`${person}followedBy`].push(follower);
+        continue;
+      }
+      countObj[person] = 1;
+      countObj[`${person}followedBy`] = [follower];
+    }
+      
+  }
+  console.log(countObj);
+  return countObj;
+
 };
 
 console.log(biggestFollower(data));
