@@ -54,12 +54,17 @@ const mostPopular = (data) =>  {
     for (const person of data[follower]['follows']) {
       if (person in countObj) {
         countObj[person]++;
+        //countObj['followedBy'].push(follower);
+        countObj[`${person}followedBy`].push(follower);
         continue;
       }
       countObj[person] = 1;
+      //countObj['followedBy'] = [follower];
+      countObj[`${person}followedBy`] = [follower];
     }
+    
   }
-  
+  console.log(countObj);
   // get most poopular individuals
   mostFollowed = getMostPopular(countObj);
 
