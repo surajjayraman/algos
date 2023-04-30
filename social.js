@@ -91,5 +91,17 @@ const analyseData = (data) => {
 
 };
 
+// outputs a list of everyone and for each of them,
+// the names of who they follow and who follows them.
+const printAll = (data) => {
+  const personData = analyseData(data);
+
+  for (const person in data) {
+    console.log(`${data[person]['name']} follows ${data[person]['follows']}`);
+    console.log(`${data[person]['name']} is followed by ${personData[`${person}followedBy`]}`);
+  }
+};
+
 console.log(biggestFollower(data));
 console.log(mostPopular(data));
+printAll(data);
