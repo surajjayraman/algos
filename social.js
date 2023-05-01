@@ -52,7 +52,7 @@ const mostPopular = (data) =>  {
   // get most popular individuals
   mostFollowed = getMostPopular(analyseData(data));
 
-  return  mostFollowed;
+  return  names(data,mostFollowed).toString();
 
 };
 
@@ -86,7 +86,7 @@ const analyseData = (data) => {
     }
       
   }
-  console.log(countObj);
+  
   return countObj;
 
 };
@@ -97,11 +97,21 @@ const printAll = (data) => {
   const personData = analyseData(data);
 
   for (const person in data) {
-    console.log(`${data[person]['name']} follows ${data[person]['follows']}`);
-    console.log(`${data[person]['name']} is followed by ${personData[`${person}followedBy`]}`);
+    console.log(`${data[person]['name']} follows ${names(data,data[person]['follows'])}`);
+    console.log(`${data[person]['name']} is followed by ${names(data,personData[`${person}followedBy`])}`);
   }
 };
 
+// returns a list of names
+const names = (data,namesKeys) => {
+  const nameList = [];
+  for (const namesKey of namesKeys) {
+    nameList.push(data[namesKey]['name']);
+  
+  }
+  return nameList;
+  
+};
 console.log(biggestFollower(data));
 console.log(mostPopular(data));
 printAll(data);
