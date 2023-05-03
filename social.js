@@ -112,6 +112,28 @@ const names = (data,namesKeys) => {
   return nameList;
   
 };
+
+// returns a list of names who follow someone that doesn't follow them back.
+const unrequitedFollowers = (data) => {
+
+  const noFollowBack = [];
+
+  for (const name in data) {
+    for (const person of data[name]['follows']) {
+      if (data[person]['follows'].includes(name)) {
+        continue;
+      }
+      noFollowBack.push(name);
+      break;
+
+    }
+
+  }
+
+  return noFollowBack;
+
+};
 console.log(biggestFollower(data));
 console.log(mostPopular(data));
 printAll(data);
+console.log(unrequitedFollowers(data));
