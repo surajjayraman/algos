@@ -123,7 +123,7 @@ const unrequitedFollowers = (data) => {
       if (data[person]['follows'].includes(name)) {
         continue;
       }
-      noFollowBack.push(name);
+      noFollowBack.push(data[name]['name']);
       break;
 
     }
