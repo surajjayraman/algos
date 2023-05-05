@@ -133,6 +133,14 @@ const unrequitedFollowers = (data) => {
   return noFollowBack;
 
 };
+
+// returns followers over 30
+const overThirty = (data) => {
+    const mostOverThirty = [];
+    // call analyse data.
+    analyseData(data);
+    return mostOverThirty;
+}
 console.log(biggestFollower(data));
 console.log(mostPopular(data));
 printAll(data);
