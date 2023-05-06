@@ -136,12 +136,28 @@ const unrequitedFollowers = (data) => {
 
 // returns followers over 30
 const overThirty = (data) => {
-  const mostOverThirty = [];
+  const mostOverThirty = {};
   // call analyse data.
-  analyseData(data);
+  const personData = analyseData(data);
+  for (const person in data) {
+    console.log(personData[`${person}followedBy`]);
+    for (const follower of personData[`${person}followedBy`]) {
+      console.log('follower age:', data[follower]['age']);
+      if (data[follower]['age'] > 30) {
+        if (mostOverThirty[person]) {
+          mostOverThirty[person]++;
+          continue;
+        }
+        mostOverThirty[person] = 1;
+      }
+    }
+  }
+
   return mostOverThirty;
 };
+
 console.log(biggestFollower(data));
 console.log(mostPopular(data));
 printAll(data);
 console.log(unrequitedFollowers(data));
+console.log(overThirty(data));
