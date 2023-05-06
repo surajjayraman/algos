@@ -139,6 +139,7 @@ const overThirty = (data) => {
   const mostOverThirty = {};
   // call analyse data.
   const personData = analyseData(data);
+  // construct mostOverThirty obj
   for (const person in data) {
     console.log(personData[`${person}followedBy`]);
     for (const follower of personData[`${person}followedBy`]) {
@@ -152,8 +153,12 @@ const overThirty = (data) => {
       }
     }
   }
-
-  return mostOverThirty;
+  // construct names array
+  const overThirtyNames = [];
+  for (const nameKey of getMostPopular(mostOverThirty)) {
+    overThirtyNames.push(data[nameKey]['name']);
+  }
+  return overThirtyNames;
 };
 
 console.log(biggestFollower(data));
