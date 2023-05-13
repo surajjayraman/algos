@@ -7,3 +7,8 @@ const myHigherOrderFunction = function(callback) {
 };
   
 myHigherOrderFunction(myFunction);
+
+// Arrow functions
+const sayHello = name => `hello there ${name}`;
+const returnVal = sayHello('bob');
+console.log('returnVal:', returnVal);
