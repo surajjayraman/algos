@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Loyalty Commerce Platform</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    body {
+      padding: 20px;
+    }
+    .loyalty-header {
+      background-color: #f8f9fa;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    .loyalty-title {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .loyalty-description {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .loyalty-content {
+      margin-bottom: 30px;
+    }
+    .loyalty-card {
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .loyalty-card-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .loyalty-card-text {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="loyalty-header">
+      <h1 class="loyalty-title">Loyalty Commerce Platform</h1>
+      <p class="loyalty-description">Manage your loyalty program with ease</p>
+    </div>
+    <div class="loyalty-content">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="loyalty-card">
+            <h2 class="loyalty-card-title">Member Information</h2>
+            <p class="loyalty-card-text">ID: <span id="memberId"></span></p>
+            <p class="loyalty-card-text">Name: <span id="memberName"></span></p>
+            <p class="loyalty-card-text">Email: <span id="memberEmail"></span></p>
+            <p class="loyalty-card-text">Points: <span id="memberPoints"></span></p>
+            <p class="loyalty-card-text">Tier Level: <span id="memberTier"></span></p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="loyalty-card">
+            <h2 class="loyalty-card-title">Recent Transactions</h2>
+            <ul id="transactionList" class="loyalty-card-text"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript code goes here to populate the member and transaction data
+    // and update the HTML elements dynamically
+  </script>
+</body>
+</html>
