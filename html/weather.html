@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>API Example</title>
+</head>
+<body>
+	<h1>Weather Data for Toronto, ON</h1>
+	<div id="weather-data"></div>
+	<script>
+		// Get a reference to the HTML element where we'll display the weather data
+		const weatherData = document.getElementById('weather-data');
+
+		// Define the URL for the weather API
+		const url = 'https://api.openweathermap.org/data/2.5/weather?q=Toronto,ON,CA&appid=YOUR_API_KEY&units=metric';
+
+		// Make a request to the weather API
+		fetch(url)
+			.then(response => response.json()) // Parse the JSON data from the response
+			.then(data => {
+				// Build the HTML for displaying the weather data
+				const html = `
+					<p>Temperature: ${data.main.temp}&deg;C</p>
+					<p>Humidity: ${data.main.humidity}%</p>
+					<p>Wind Speed: ${data.wind.speed} m/s</p>
+				`;
+
+				// Add the HTML to the page
+				weatherData.innerHTML = html;
+			})
+			.catch(error => console.error(error)); // Log any errors to the console
+	</script>
+</body>
+</html>
