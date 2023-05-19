@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AES-GCM Text Encryption</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+  <script>
+    // Function to handle the text encryption
+    function encryptText() {
+      const textInput = document.getElementById('textInput');
+      const text = textInput.value;
+      const password = document.getElementById('password').value;
+
+      // Convert password to a WordArray
+      const passwordBytes = CryptoJS.enc.Utf8.parse(password);
+
+      // Generate a random IV
+      const iv = CryptoJS.lib.WordArray.random(12);
+
+      // Perform AES-GCM encryption
+      const encrypted = CryptoJS.AES.encrypt(text, passwordBytes, { iv: iv });
+
+      // Display the encrypted result
+      const encryptedOutput = document.getElementById('encryptedOutput');
+      encryptedOutput.textContent = encrypted.toString();
+
+      // Display the IV
+      const ivDisplay = document.getElementById('ivDisplay');
+      ivDisplay.textContent = 'IV: ' + CryptoJS.enc.Hex.stringify(iv);
+    }
+  </script>
+</head>
+<body>
+  <h1>AES-GCM Text Encryption</h1>
+  <textarea id="textInput" rows="5" cols="50" placeholder="Enter text to encrypt"></textarea>
+  <br>
+  <label for="password">Password:</label>
+  <input type="password" id="password">
+  <br>
+  <button onclick="encryptText()">Encrypt</button>
+  <br>
+  <h3>Encrypted Output:</h3>
+  <div id="encryptedOutput"></div>
+  <h3>IV:</h3>
+  <div id="ivDisplay"></div>
+</body>
+</html>

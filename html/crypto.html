@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AES-GCM File Encryption</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+  <script>
+    // Function to handle the file encryption
+    function encryptFile() {
+      const fileInput = document.getElementById('fileInput');
+      const file = fileInput.files[0];
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const fileData = event.target.result;
+        const password = document.getElementById('password').value;
+
+        // Convert password to a WordArray
+        const passwordBytes = CryptoJS.enc.Utf8.parse(password);
+
+        // Generate a random IV
+        const iv = CryptoJS.lib.WordArray.random(12);
+
+        // Perform AES-GCM encryption
+        const encrypted = CryptoJS.AES.encrypt(fileData, passwordBytes, { iv: iv });
+
+        // Create an object URL for the encrypted data
+        const encryptedBlob = new Blob([encrypted.toString()], { type: 'application/octet-stream' });
+        const encryptedUrl = URL.createObjectURL(encryptedBlob);
+
+        // Display the download link
+        const downloadLink = document.getElementById('downloadLink');
+        downloadLink.href = encryptedUrl;
+        downloadLink.download = file.name + '.enc';
+        downloadLink.style.display = 'block';
+
+        // Display the IV
+        const ivDisplay = document.getElementById('ivDisplay');
+        ivDisplay.textContent = 'IV: ' + CryptoJS.enc.Hex.stringify(iv);
+      };
+
+      reader.readAsDataURL(file);
+    }
+  </script>
+</head>
+<body>
+  <h1>AES-GCM File Encryption</h1>
+  <input type="file" id="fileInput">
+  <br>
+  <label for="password">Password:</label>
+  <input type="password" id="password">
+  <br>
+  <button onclick="encryptFile()">Encrypt</button>
+  <br>
+  <h3>Download Encrypted File:</h3>
+  <a id="downloadLink" style="display: none;">Download</a>
+  <h3>IV:</h3>
+  <div id="ivDisplay"></div>
+</body>
+</html>
