@@ -23,3 +23,22 @@ const iifoo = (function() {
 // assigning the returned value (inner) to iifoo
   
 iifoo();
+
+// loyalty points specific closure
+const createPointsCalculator = function(basePoints) {
+  return function(pointsMultiplier) {
+    return function(transactionAmount) {
+      const points = transactionAmount * basePoints * pointsMultiplier;
+      console.log(`Earned ${points} points for $${transactionAmount} transaction.`);
+    };
+  };
+};
+  
+// Usage
+const calculatePoints = createPointsCalculator(1); // Base points: 1
+const doublePoints = calculatePoints(2); // Points multiplier: 2
+const triplePoints = calculatePoints(3); // Points multiplier: 3
+  
+doublePoints(100); // Earned 200 points for $100 transaction.
+triplePoints(150); // Earned 450 points for $150 transaction.
+  
