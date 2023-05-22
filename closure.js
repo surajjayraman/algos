@@ -27,9 +27,13 @@ iifoo();
 // loyalty points specific closure
 const createPointsCalculator = function(basePoints) {
   return function(pointsMultiplier) {
+    let pointsCounter = 0;
     return function(transactionAmount) {
+      pointsCounter++;
       const points = transactionAmount * basePoints * pointsMultiplier;
       console.log(`Earned ${points} points for $${transactionAmount} transaction.`);
+      console.log(`Value of pointsCounter: ${pointsCounter}`);
+      return pointsCounter;
     };
   };
 };
