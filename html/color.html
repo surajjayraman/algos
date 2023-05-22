@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Style Changer</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      transition: background-color 0.5s;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" id="box"></div>
+  <button id="changeColorButton">Change Color</button>
+
+  <script>
+    // Immediately Invoked Function Expression (IIFE)
+    (function() {
+      var boxElement = document.getElementById('box');
+      var changeColorButton = document.getElementById('changeColorButton');
+
+      function changeColor() {
+        var colors = ['red', 'green', 'blue', 'yellow'];
+        var currentIndex = 0;
+
+        return function() {
+          boxElement.style.backgroundColor = colors[currentIndex];
+          currentIndex = (currentIndex + 1) % colors.length;
+        };
+      }
+
+      var colorChanger = changeColor();
+
+      changeColorButton.addEventListener('click', colorChanger);
+    })();
+  </script>
+</body>
+</html>
