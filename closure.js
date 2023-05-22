@@ -45,4 +45,15 @@ const triplePoints = calculatePoints(3); // Points multiplier: 3
   
 doublePoints(100); // Earned 200 points for $100 transaction.
 triplePoints(150); // Earned 450 points for $150 transaction.
-  
+
+// Lexical scoping
+const init = function() {
+  let name = "Mozilla"; // name is a local variable created by init
+  const displayName = function() {
+    // displayName() is the inner function, that forms the closure
+    console.log(name); // use variable declared in the parent function
+  };
+  displayName();
+};
+init();
+
