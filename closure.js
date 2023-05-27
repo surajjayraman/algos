@@ -124,16 +124,13 @@ countdown(); // Rockets already gone, bub!
 //Logging Wrapper
 const wrapLog = function(callback, name) {
      
-  //Logs the name, input parameters, and return value of the callback
-  console.log(`Name of the callback: ${name}
-    Input Paramters: ${arguments[0]}, ${arguments[1]}}
-    Return value of ${name}: ${callback}`);
-    
+  //Logs the name, input parameters, and return value of the callback 
+  console.log.apply(null,arguments);
   return callback;
 };
   
 const area = function(x, y) {
-  console.log("Area arguments", arguments[0],arguments[1]);
+  //console.log("Area arguments", arguments[0],arguments[1]);
   return x * y;
 };
 const logArea = wrapLog(area, "area");
