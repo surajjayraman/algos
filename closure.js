@@ -120,3 +120,31 @@ countdown(); // T-minus 1...
 countdown(); // Blast Off!
 countdown(); // Rockets already gone, bub!
 countdown(); // Rockets already gone, bub!
+
+//Logging Wrapper
+const wrapLog = function(callback, name) {
+     
+  //Logs the name, input parameters, and return value of the callback
+  console.log(`Name of the callback: ${name}
+    Input Paramters: ${arguments[0]}, ${arguments[1]}}
+    Return value of ${name}: ${callback}`);
+    
+  return callback;
+};
+  
+const area = function(x, y) {
+  console.log("Area arguments", arguments[0],arguments[1]);
+  return x * y;
+};
+const logArea = wrapLog(area, "area");
+  
+console.log(logArea(5, 3)); // area(5, 3) => 15
+console.log(logArea(3, 2)); // area(3, 2) => 6
+  
+const volume = function(x, y, z) {
+  return x * y * z;
+};
+const logVolume = wrapLog(volume, "volume");
+  
+console.log(logVolume(5, 3, 2)); // volume(5, 3, 2) => 30
+logVolume(3, 2, 4); // volume(3, 2, 4) => 24
