@@ -124,7 +124,7 @@ countdown(); // Rockets already gone, bub!
 //Logging Wrapper
 const wrapLog = function(callback, name) {
      
-  //Logs the name, input parameters, and return value of the callback 
+  //Logs the name, input parameters, and return value of the callback
   console.log.apply(null,arguments);
   return callback;
 };
@@ -145,3 +145,31 @@ const logVolume = wrapLog(volume, "volume");
   
 console.log(logVolume(5, 3, 2)); // volume(5, 3, 2) => 30
 logVolume(3, 2, 4); // volume(3, 2, 4) => 24
+
+//Arrow functions and no this
+let group = {
+  title: "Our Group",
+  students: ["John", "Pete", "Alice"],
+  
+  showList() {
+    this.students.forEach(
+      student => console.log(this.title + ': ' + student)
+    );
+  }
+};
+  
+group.showList();
+
+let groupRegular = {
+  title: "Our Group",
+  students: ["John", "Pete", "Alice"],
+  
+  showList() {
+    this.students.forEach(function(student) {
+      // Error: Cannot read property 'title' of undefined
+      console.log(this.title + ': ' + student);
+    });
+  }
+};
+  
+groupRegular.showList();
