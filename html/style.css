@@ -1,0 +1,28 @@
+div {
+    border: 1px solid black;
+    padding: 2px;
+}
+
+h1 {
+
+    color: blue;
+    background-color: beige;
+}
+
+h2 {
+
+    color: peru;
+    background-color: beige;
+}
+
+#header2 {
+    color: green;
+}
+
+p {
+    color: blue;
+}
+
+#latest {
+    background-color: purple;
+}
