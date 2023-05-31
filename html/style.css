@@ -1,6 +1,7 @@
 div {
     border: 1px solid black;
     padding: 2px;
+
 }
 
 h1 {
@@ -25,4 +26,31 @@ p {
 
 #latest {
     background-color: purple;
+}
+
+.navigation {
+    margin: 2px;
+}
+
+p.introduction {
+    margin: 2px;
+}
+
+#blog div h1 {
+    color: orange;
+}
+
+#blog>h1:hover {
+    color: green;
+}
+
+a:hover {
+    color: orange;
+}
+
+p {
+    text-decoration-line: underline;
+    text-decoration-color: red;
+    text-decoration-style: solid;
+    text-decoration-thickness: 5px;
 }
