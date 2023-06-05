@@ -41,3 +41,15 @@ const makeTree = (categories, parent) => {
 console.log(
   JSON.stringify(makeTree(categories,null),null, 2)
 );
+
+// OOP style
+//creating an object
+const virtualPet = {
+  sleepy: true,
+  nap: function() {
+    this.sleepy = false;
+  }
+};
+console.log(virtualPet.sleepy); // true
+virtualPet.nap();
+console.log(virtualPet.sleepy); // false
