@@ -17,4 +17,19 @@ undefined
 h2
 <h2 id=​"sub-heading" class=​"primary">​This is a h2 heading.​</h2>
 document.body.appendChild(h2);
-<h2 id=​"sub-heading" class=​"primary">​This is a h2 heading.​</h2>​
+<h2 id=​"sub-heading" class=​"primary">​This is a h2 heading.​</h2>
+
+<!-- HTML content update -->
+var h1 = document.createElement('h1')
+h1.innerText = "Type into the input to make this text change"
+
+var input = document.createElement('input')
+input.setAttribute('type', 'text')
+
+document.body.innerText = '';
+document.body.appendChild(h1);
+document.body.appendChild(input);
+
+input.addEventListener('change', function() {
+h1.innerText = input.value;
+});
