@@ -1,0 +1,23 @@
+{
+  "name": "algos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "arrayObj.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surajjayraman/algos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/surajjayraman/algos/issues"
+  },
+  "homepage": "https://github.com/surajjayraman/algos#readme",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
