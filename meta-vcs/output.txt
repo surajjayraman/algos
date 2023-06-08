@@ -1,0 +1,4 @@
+total 16
+-rw-r--r--  1 lighthouse  staff  31  8 Jun 12:58 input.txt
+-rw-r--r--  1 lighthouse  staff   0  8 Jun 13:02 output.txt
+-rwxr-xr-x  1 lighthouse  staff  32  8 Jun 11:55 testshell.sh
