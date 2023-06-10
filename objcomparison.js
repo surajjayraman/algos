@@ -37,9 +37,17 @@ const eqObjects = function(first, second) {
   
 };
 
+// Test with objects
 const result1 = eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 });
 console.log(result1);
 const result2 = eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 });
 console.log(result2);
 const result3 = eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 });
 console.log(result3);
+
+// Test with Arrays
+console.log(eqObjects([[2, 3], [4]], [[2, 3], [4]]));
+console.log(eqObjects([[2, 3], [4]], [[2, 3], [4, 5]]));
+console.log(eqObjects([[2, 3], [4]], [[2, 3], 4]));
+
+module.exports = eqObjects;

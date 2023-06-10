@@ -58,4 +58,4 @@ const delegate = {
 };
   
 // Define the Controller
-renderProductList(model);  
+renderProductList(model);
