@@ -58,14 +58,14 @@ const findFriend = (data,name,info) => {
       if (friendInfo[0][info] !== null && friendInfo[0][info] !== undefined) {
         friendDetails[info] = friendInfo[0][info];
       } else {
-        friendDetails[info] = "Not found";
+        return "Not found";
       }
       
       return friendDetails;
     }
   }
 
-  return "Not Found";
+  return "Not found";
 };
 
 console.log(findFriend(contacts, "Abbott", "phone"));
